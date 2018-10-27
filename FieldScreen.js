@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, Image } from 'react-native';
-
+import { Text, View, FlatList, Image, TouchableWithoutFeedback, Alert } from 'react-native';
 export default class FieldSceen extends Component {
   static navigationOptions = {
     title: 'Boisko MS',
@@ -22,16 +21,19 @@ export default class FieldSceen extends Component {
       {name: 'Boisko MS', address: 'Miasteczko Studenckie', imageUrl: 'https://www.w3schools.com/howto/img_avatar.png'},
       {name: 'Boisko MS', address: 'Miasteczko Studenckie', imageUrl: 'https://www.w3schools.com/howto/img_avatar.png'},
   ]};
-
   renderItem = ({item}) => (
-    <View>
+    <TouchableWithoutFeedback onPress={ () => Alert.alert(item.name)}>
+    <View style={{backgroundColor:'#FFFF00'}}>
       <Text style={{textAlign: 'center'}}>{item.name}</Text>
       <Text>{item.address}</Text>
       {item.imageUrl && <Image
         style={{height: 100, width: 100}}
         source={{uri: item.imageUrl}}
+
       />}
     </View>
+    </TouchableWithoutFeedback>
+
   );
 
   render() {
