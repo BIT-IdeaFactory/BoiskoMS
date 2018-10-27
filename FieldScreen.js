@@ -3,6 +3,16 @@ import { Text, View, FlatList, Image, TouchableWithoutFeedback, Alert } from 're
 export default class FieldSceen extends Component {
   static navigationOptions = {
     title: 'Lista boisk',
+    headerStyle: {
+      backgroundColor: '#108dc7',
+      height: 80
+    },
+    headerTitleStyle: {
+      color: '#fff',
+      fontSize: 27,
+      width: '93%',
+      textAlign: 'center'
+    }
   };
   
   state = {fields: [
@@ -23,12 +33,12 @@ export default class FieldSceen extends Component {
   ]};
   renderItem = ({item}) => (
     <TouchableWithoutFeedback onPress={ () => this.props.navigation.navigate('Games')}>
-    <View style={{backgroundColor:'#fff',flexWrap: 'wrap', alignItems: 'flex-start', flexDirection:'row', padding: 15}}>
+    <View style={{backgroundColor:'#fff', marginBottom: 5, flexWrap: 'wrap', alignItems: 'flex-start', flexDirection:'row', padding: 15, borderWidth: 1, borderColor: "#ddd"}}>
       {item.imageUrl && <Image
-        style={{height: 80, width: 80, borderRadius: 100, marginRight: 15}}
+        style={{height: '100%', width: '18%', borderRadius: 100, marginRight: '5%'}}
         source={{uri: item.imageUrl}}
       />}
-      <View style={{width: '70%'}}>
+      <View style={{width: '77%'}}>
         <Text style={{fontSize: 20}}>{item.name}</Text>
         <Text>{item.address}</Text>
         <Text>Godz. otwarcia: {item.openHours}</Text>
