@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList, Image, TouchableWithoutFeedback, Alert } from 'react-native';
+import Styles from './Styles';
+
 export default class FieldSceen extends Component {
   static navigationOptions = {
     title: 'Lista boisk',
     headerStyle: {
       backgroundColor: '#108dc7',
       height: 80
+    },
+    titleStyle: {
+      color:'white'
     },
     headerTitleStyle: {
       color: '#fff',
@@ -33,9 +38,9 @@ export default class FieldSceen extends Component {
   ]};
   renderItem = ({item}) => (
     <TouchableWithoutFeedback onPress={ () => this.props.navigation.navigate('Games')}>
-    <View style={{backgroundColor:'#fff', marginBottom: 5, flexWrap: 'wrap', alignItems: 'flex-start', flexDirection:'row', padding: 15, borderWidth: 1, borderColor: "#ddd"}}>
+    <View style={Styles.listItem}>
       {item.imageUrl && <Image
-        style={{height: '100%', width: '18%', borderRadius: 100, marginRight: '5%'}}
+        style={Styles.listImage}
         source={{uri: item.imageUrl}}
       />}
       <View style={{width: '77%'}}>
@@ -51,7 +56,7 @@ export default class FieldSceen extends Component {
   render() {
     return (
       <FlatList
-        style={{width: '100%', padding: 10}}
+        style={Styles.list}
         data={this.state.fields}
         renderItem={this.renderItem}
       />
