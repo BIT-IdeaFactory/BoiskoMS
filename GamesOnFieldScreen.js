@@ -3,6 +3,10 @@ import { Alert, Text, View, TouchableWithoutFeedback, StyleSheet, FlatList } fro
 import {data} from './mockFieldScreenData'   
 
 class GamesOnFieldScreen extends Component {
+  static navigationOptions = {
+    title: 'Lista gierek',
+  };
+
    state = data;
    alertItemName = (item) => {
       alert(item.name)
